@@ -1,0 +1,52 @@
+[project]
+name = "evoproject"
+version = "0.1.0"
+description = "Genomic sequence embedding extraction and variant difference analysis using Evo2"
+readme = "README.md"
+requires-python = ">=3.11, <3.13"
+authors = [
+    { name = "Tian", email = "tianh@gmail.com" },
+]
+license = { text = "MIT" }
+keywords = ["genomics", "evo2", "embeddings", "bioinformatics", "dna"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "biopython>=1.80",
+    "evo2>=0.6.0",
+    "matplotlib>=3.8.0",
+    "numpy>=1.26.0",
+    "torch>=2.2.0",
+]
+
+[project.optional-dependencies]
+cuda = [
+    "flash-attn>=2.8.0",
+]
+dev = [
+    "ipykernel>=6.0.0",
+    "jupyterlab>=4.0.0",
+    "notebook>=7.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6.0.0",
+    "jupyterlab>=4.0.0",
+    "notebook>=7.0.0",
+]
+
+[project.scripts]
+extract-embedding = "extract_embeding:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["extract_embeding"]
