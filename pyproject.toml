@@ -19,8 +19,11 @@ classifiers = [
 dependencies = [
     "biopython>=1.80",
     "evo2>=0.6.0",
+    "flash-attn",
+    "hgvs>=1.5.7",
     "matplotlib>=3.8.0",
     "numpy>=1.26.0",
+    "pandas>=3.1.1",
     "torch>=2.2.0",
 ]
 
@@ -50,3 +53,15 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
 py-modules = ["extract_embeding"]
+
+[[tool.uv.index]]
+name = "pytorch-cu121"
+url = "https://download.pytorch.org/whl/cu121"
+explicit = true
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cu121" }
+]
+flash-attn = { url = "https://github.com/Dao-AILab/flash-attention/releases/download/v2.7.4.post1/flash_attn-2.7.4.post1+cu12torch2.5cxx11abiFALSE-cp312-cp312-linux_x86_64.whl" }
+

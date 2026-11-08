@@ -37,3 +37,5 @@ differences/*.npy
 .ipynb_checkpoints/
 *.log
 *.deb
+*.csv
+
